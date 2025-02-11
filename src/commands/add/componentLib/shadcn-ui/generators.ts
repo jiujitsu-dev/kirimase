@@ -186,8 +186,12 @@ const generateComponentsJson = (rootPath: string) => {
   },
   "aliases": {
     "components": "${alias}/components",
-    "utils": "${alias}/lib/utils"
-  }
+    "utils": "${alias}/lib/utils",
+    "ui": "${alias}/components/ui",
+    "lib": "${alias}/lib",
+    "hooks": "${alias}/hooks"
+  },
+  "iconLibrary": "lucide"
 }
 `;
 };
