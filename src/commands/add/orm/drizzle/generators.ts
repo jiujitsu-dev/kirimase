@@ -855,11 +855,7 @@ const generateEnvMjs = (
   blank = false
 ) => {
   return `import { createEnv } from "@t3-oss/env-nextjs";
-import { z } from "zod";${
-    preferredPackageManager !== "bun" && ormType === "drizzle"
-      ? '\nimport "dotenv/config";'
-      : ""
-  }
+import { z } from "zod";
 import 'dotenv/config';
 
 export const env = createEnv({
