@@ -13,7 +13,7 @@ import {
   defaultValueMappings,
   formatTableName,
   toCamelCase,
-  toNormalEnglish,
+  toNormalEnglish
 } from "../utils.js";
 import { addToShadcnComponentList } from "../../add/utils.js";
 
@@ -101,6 +101,7 @@ import { api } from "${formatFilePath(trpc.trpcApiTs, {
         })}";`
       : ""
   }
+export const dynamic = "force-dynamic";
 
 export default async function ${tableNameCapitalised}() {
   ${
@@ -432,6 +433,18 @@ const ${tableNameSingularCapitalised}Form = ({
       packages.includes("shadcn-ui")
         ? `\n        toast.success(\`${tableNameNormalEnglishSingular} \${action}d!\`);`
         : null
+    }
+  };
+
+  const onError = async (${
+    packages.includes("shadcn-ui")
+      ? 'action: "create" | "update" | "delete",\n'
+      : ""
+  }    data?: { error?: string },
+  ) => {
+        if (data?.error) {
+      toast.error(data.error)
+      return;
     }
   };
 

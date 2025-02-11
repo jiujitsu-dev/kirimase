@@ -860,6 +860,7 @@ import { z } from "zod";${
       ? '\nimport "dotenv/config";'
       : ""
   }
+import 'dotenv/config';
 
 export const env = createEnv({
   server: {
